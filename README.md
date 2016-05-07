@@ -13,7 +13,7 @@ gem 'fastread'
 
 And then execute:
 ```bash
-$ bundle
+$ fastread 'token'
 ```
 
 Or install it yourself as:

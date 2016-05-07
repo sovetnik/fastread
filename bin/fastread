@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'fastread'
+Fastread::Runner.run
