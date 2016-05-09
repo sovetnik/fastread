@@ -1,7 +1,7 @@
 class Regexp
 
   PERFECT_URL_PATTERN = %r{
-    \A
+    # \A
 
     # protocol identifier
     (?:(?:https?|ftp)://)
@@ -43,6 +43,6 @@ class Regexp
     # resource path
     (?:/[^\s]*)?
 
-    \z
+    # \z
   }xi
 end
