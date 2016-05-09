@@ -1,5 +1,5 @@
 class Parser
-  def self.parse(_text)
-    # some kind of result
+  def self.parse(message)
+    raise 'Must be implemented!'
   end
 end

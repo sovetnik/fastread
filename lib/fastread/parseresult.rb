@@ -3,7 +3,7 @@ class ParseResult
     raise 'Must be implemented in child!'
   end
 
-  def should_sent?
+  def answer_to_user?
     raise 'Must be implemented in child!'
   end
 end

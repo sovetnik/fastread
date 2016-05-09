@@ -11,6 +11,7 @@ gemspec
 # your gem to rubygems.org.
 
 gem 'telegram-bot-ruby'
+gem 'ruby-readability'
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]

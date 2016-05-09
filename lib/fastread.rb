@@ -1,5 +1,7 @@
 require 'telegram/bot'
 require 'fastread/handler'
+require 'fastread/core_ext'
+
 module Fastread
   class Runner
     def self.run

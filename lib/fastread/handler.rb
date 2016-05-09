@@ -1,3 +1,5 @@
+require 'fastread/parsers/telegram'
+
 class Handler
   def self.handle(bot, message)
     new(bot, message).handle
@@ -41,10 +43,10 @@ class Handler
   end
 
   def parse
-    bot.api.send_message(
-      chat_id: message.chat.id,
-      text: 'If i had brains, i will give you an answer.'
-    )
     p ('Need Parse: ' + message.text)
+    result = TelegramParser.parse(message)
+    if result.answer_to_user?
+      bot.api.send_message(chat_id: message.chat.id, text: result.body)
+    end
   end
 end

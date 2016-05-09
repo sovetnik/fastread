@@ -18,8 +18,12 @@ GEM
     equalizer (0.0.11)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    guess_html_encoding (0.0.11)
     ice_nine (0.11.2)
+    mini_portile2 (2.0.0)
     multipart-post (2.0.0)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     rake (11.1.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
@@ -34,6 +38,9 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby-readability (0.7.0)
+      guess_html_encoding (>= 0.0.4)
+      nokogiri (>= 1.6.0)
     telegram-bot-ruby (0.5.0)
       faraday
       virtus
@@ -51,7 +58,8 @@ DEPENDENCIES
   fastread!
   rake
   rspec
+  ruby-readability
   telegram-bot-ruby
 
 BUNDLED WITH
-   1.11.2
+   1.12.3
