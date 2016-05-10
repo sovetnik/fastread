@@ -6,6 +6,6 @@ class SilentResponse < Response
   def initialize
     @body = nil
     @valid = false
-    @answer = true
+    @answer = false
   end
 end

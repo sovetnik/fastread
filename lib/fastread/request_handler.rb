@@ -38,7 +38,7 @@ class RequestHandler
   end
 
   def send_result
-    send_result! if @result.valid? && @result.answer?
+    send_result! if @result.answer?
   end
 
   def send_result!
