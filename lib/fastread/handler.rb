@@ -1,12 +1,12 @@
-require 'fastread/parsers/url_parser'
-require 'fastread/text_analizer'
+require 'fastread/parser'
+require 'fastread/result'
 
 class Handler
   def self.handle(bot, message)
     new(bot, message).handle
   end
 
-  attr_reader :bot, :message, :article
+  attr_reader :bot, :message, :result
 
   def initialize(bot, message)
     @bot = bot
@@ -14,18 +14,28 @@ class Handler
   end
 
   def handle
-    @article = case message
-                when Telegram::Bot::Types::Message
-                  puts "#{message.from.first_name}: \"#{message.text}\""
-                  UrlParser.parse(message.text)
-                # when Telegram::Bot::Types::InlineQuery
-                  # bot.api.answer_inline_query(inline_query_id: message.id, results: results)
-                end
+    puts "#{message.from.first_name}: \'#{message.text}\'"
+    set_result
+    try_send_result
+  end
 
-    if article.valid? && article.answer?
-      minutes_for_reading_text = TextAnalizer.time_for_text(article.body, :average)
-      text = "#{message.from.first_name}, this link will take #{minutes_for_reading_text} minutes"
-      bot.api.send_message(chat_id: message.chat.id, text: text)
+  private
+
+  def set_result
+    case message
+    when Telegram::Bot::Types::Message
+      @result = Parser.parse(message.text)
+    when Telegram::Bot::Types::InlineQuery
+      @result = Result.new
+      # bot.api.answer_inline_query(inline_query_id: message.id, results: results)
     end
+  end
+
+  def try_send_result
+    send_result! if result.valid? && result.answer?
+  end
+
+  def send_result!
+    bot.api.send_message(chat_id: message.chat.id, text: result.body)
   end
 end
