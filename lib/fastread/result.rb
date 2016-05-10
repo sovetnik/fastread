@@ -4,10 +4,10 @@ class Result
   end
 
   def valid?
-    raise 'Must be implemented!'
+    valid
   end
 
   def answer?
-    raise 'Must be implemented!'
+    answer
   end
 end
