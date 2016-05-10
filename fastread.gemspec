@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Fastread::VERSION
   s.authors     = %w(sovetnik MistaTwista)
   s.email       = ['']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO: Summary of Fastread.'
-  s.description = 'TODO: Description of Fastread.'
+  s.homepage    = 'http://fastread.com'
+  s.summary     = 'Telegram bot for estimating time for articles in links'
+  s.description = 'Fastread takes the link and answers with estimated time for reading text from that link'
   s.license     = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
