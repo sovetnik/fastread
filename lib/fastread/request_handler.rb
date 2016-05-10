@@ -31,9 +31,6 @@ class RequestHandler
     case @message
     when Telegram::Bot::Types::Message
       @result = Parser.parse(@message.text)
-    when Telegram::Bot::Types::InlineQuery
-      @result = SilentResponse.new
-      # bot.api.answer_inline_query(inline_query_id: message.id, results: results)
     end
   end
 
