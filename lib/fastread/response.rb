@@ -1,4 +1,6 @@
-class Result
+class Response
+  attr_reader :valid, :answer
+
   def body
     raise 'Must be implemented!'
   end

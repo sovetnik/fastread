@@ -1,14 +1,15 @@
-require 'fastread/results/invalid_result'
-require 'fastread/results/standard_result'
+require 'fastread/responses/estimated_time_response'
+require 'fastread/responses/bad_request_response'
+require 'fastread/url_text_analizer'
 
 class Parser
   class << self
     def parse(text)
-      extracted_url = extract_url(text)
-      if extracted_url
-        StandardResult.new(extracted_url)
+      url = extract_url(text)
+      if url
+        EstimatedTimeResponse.new(UrlTextAnalizer.new(url).time_for_text)
       else
-        InvalidResult.new('Url is not valid')
+        BadRequestResponse.new('Url is not valid')
       end
     end
 
