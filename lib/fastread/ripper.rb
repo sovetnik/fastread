@@ -8,9 +8,6 @@ class Ripper
 
   def extract_article
     content.gsub(/<\/?[^>]+>/, '')
-  rescue Exception => e
-    # OpenURI::HTTPError
-    puts e.message
   end
 
   private
@@ -20,7 +17,12 @@ class Ripper
   end
 
   def web_page
-    open(@link, 'User-Agent' => get_user_agent).read
+    begin
+      open(@link, 'User-Agent' => get_user_agent).read
+    rescue Exception => e
+      # OpenURI::HTTPError
+      puts e.message
+    end
   end
 
   def get_user_agent

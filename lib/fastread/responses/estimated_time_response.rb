@@ -14,6 +14,6 @@ class EstimatedTimeResponse < Response
   private
 
   def minutes_counter
-    @time > 1 ? @time.to_s + " minutes" : @time.to_s + " minute"
+    @time == 1 ? @time.to_s + " minute" : @time.to_s + " minutes"
   end
 end
