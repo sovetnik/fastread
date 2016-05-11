@@ -7,21 +7,17 @@ class Ripper
   end
 
   def extract_article
-    content.gsub(/<\/?[^>]+>/, '')
+    Readability::Document.new(@page).content.gsub(/<\/?[^>]+>/, '') if load_page
   end
 
   private
 
-  def content
-    Readability::Document.new(web_page).content
-  end
-
-  def web_page
-    begin
+  def load_page
+    @page ||= begin
       open(@link, 'User-Agent' => get_user_agent).read
     rescue Exception => e
-      # OpenURI::HTTPError
       puts e.message
+      false
     end
   end
 

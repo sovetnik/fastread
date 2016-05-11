@@ -8,12 +8,12 @@ class EstimatedTimeResponse < Response
   end
 
   def body
-    "this will take #{minutes_counter}"
+    "this article will take #{minutes_counter}"
   end
 
   private
 
   def minutes_counter
-    @time == 1 ? @time.to_s + " minute" : @time.to_s + " minutes"
+    @time == 1 ? @time.to_s + ' minute' : @time.to_s + ' minutes'
   end
 end
