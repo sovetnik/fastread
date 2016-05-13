@@ -5,10 +5,10 @@ require 'fastread/ripper'
 class Parser
   class << self
     def parse(text)
-      url = extract_url(text)
-      return BadRequestResponse.new('Url is not provided') unless url
+      link = extract_link(text)
+      return BadRequestResponse.new('Url is not provided') unless link
 
-      article = extract_article(url)
+      article = extract_article(link)
       return BadRequestResponse.new('Url is not valid') unless article
 
       EstimatedTimeResponse.new score_time(article)
@@ -20,13 +20,13 @@ class Parser
       article.length / ReadingSpeed::TEXT_READING_SPEED_NORM[speed.to_sym]
     end
 
-    def extract_url(text)
-      urls = Regexp::PERFECT_URL_PATTERN.match(text)
-      urls[0] if urls
+    def extract_link(text)
+      links = Regexp::PERFECT_URL_PATTERN.match(text)
+      links[0] if links
     end
 
-    def extract_article(url)
-      Ripper.new(url).extract_article
+    def extract_article(link)
+      Ripper.new(link).extract_article
     end
   end
 end
