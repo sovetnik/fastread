@@ -26,8 +26,6 @@ class RequestHandler
       TextResponse.new(:start, @message.from.first_name)
     when '/help'
       TextResponse.new(:help, @message.from.first_name)
-    when '/stop'
-      TextResponse.new(:stop, @message.from.first_name)
     when '/who'
       TextResponse.new(:who, @message.from.first_name)
     when /^\/read.*/
