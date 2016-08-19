@@ -1,28 +1,22 @@
 # Fastread
-Short description and motivation.
-
-## Usage
-How to use my plugin.
+Simply calculate time to read text from url.
 
 ## Installation
-Add this line to your application's Gemfile:
 
-```ruby
-gem 'fastread'
-```
-
-And then execute:
-```bash
-$ fastread 'token'
-```
-
-Or install it yourself as:
 ```bash
 $ gem install fastread
 ```
 
-## Contributing
-Contribution directions go here.
+## Usage
+Get token from @BotFather
+
+```bash
+$ fastread 'token'
+```
+
+* Send article url to bot.
+* You receive reading time in minutes in answer.
+
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
